@@ -1,0 +1,7 @@
+mario-html5.zip
+node_modules/
+shots/
+.chrome*/
+.edge-profile/
+.DS_Store
+Thumbs.db

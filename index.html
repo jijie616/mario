@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="一个用纯 HTML5 Canvas 与 Web Audio 打造的像素马力欧风格平台游戏。" />
+  <title>SUPER MARIO · HTML5 像素冒险</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="ambient-glow ambient-glow-a"></div>
+    <div class="ambient-glow ambient-glow-b"></div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Super Mario HTML5 首页">
+        <span class="brand-cube">M</span>
+        <span class="brand-copy">
+          <strong>SUPER MARIO</strong>
+          <small>HTML5 PIXEL ADVENTURE</small>
+        </span>
+      </a>
+
+      <div class="toolbar" role="group" aria-label="游戏设置">
+        <button class="tool-button" id="soundButton" type="button" aria-pressed="true" title="开关声音 (M)">
+          <span class="tool-icon" aria-hidden="true">♪</span>
+          <span class="tool-label">声音开</span>
+        </button>
+        <button class="tool-button" id="pauseButton" type="button" title="暂停 / 继续 (P)">
+          <span class="tool-icon" aria-hidden="true">Ⅱ</span>
+          <span class="tool-label">暂停</span>
+        </button>
+        <button class="tool-button" id="fullscreenButton" type="button" title="全屏 (F)">
+          <span class="tool-icon" aria-hidden="true">⛶</span>
+          <span class="tool-label">全屏</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="game-shell">
+        <div class="game-frame" id="gameFrame">
+          <canvas id="game" width="256" height="240" tabindex="0" aria-label="Super Mario 像素游戏画面"></canvas>
+          <div class="screen-effects" aria-hidden="true"></div>
+          <div class="screen-glass" aria-hidden="true"></div>
+          <div class="touch-to-start" id="touchHint" aria-hidden="true"></div>
+        </div>
+
+        <div class="touch-controls" id="touchControls" aria-label="触摸游戏控制">
+          <div class="touch-dpad">
+            <button class="touch-button touch-left" type="button" data-control="left" aria-label="向左">
+              <span>◀</span>
+            </button>
+            <button class="touch-button touch-right" type="button" data-control="right" aria-label="向右">
+              <span>▶</span>
+            </button>
+          </div>
+          <div class="touch-actions">
+            <button class="touch-button touch-run" type="button" data-control="run" aria-label="加速 / 发射火球">
+              <span>B</span><small>冲刺 / 火球</small>
+            </button>
+            <button class="touch-button touch-jump" type="button" data-control="jump" aria-label="跳跃">
+              <span>A</span><small>跳跃</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="game-info" aria-label="操作说明">
+        <div class="info-card">
+          <div class="info-heading">
+            <span class="pixel-dot"></span>
+            <span>HOW TO PLAY</span>
+            <span class="info-line"></span>
+          </div>
+          <div class="key-row">
+            <div class="key-group">
+              <kbd>←</kbd><kbd>→</kbd>
+              <span>移动</span>
+            </div>
+            <div class="key-group">
+              <kbd>Space</kbd><kbd>Z</kbd>
+              <span>跳跃</span>
+            </div>
+            <div class="key-group">
+              <kbd>Shift</kbd><kbd>X</kbd>
+              <span>加速 / 火球</span>
+            </div>
+            <div class="key-group">
+              <kbd>P</kbd>
+              <span>暂停</span>
+            </div>
+            <div class="key-group">
+              <kbd>M</kbd>
+              <span>静音</span>
+            </div>
+          </div>
+          <p class="info-tip">
+            <span class="star">✦</span>
+            踩扁敌人、顶问号砖、吃下蘑菇变大。拿到火焰花后，按 <b>Shift / X</b> 发射火球。
+            用跑跳越过深坑，抵达关卡尽头的旗杆！
+          </p>
+        </div>
+        <div class="info-meta">
+          <span>WORLD 1</span>
+          <span class="meta-sep">/</span>
+          <span>3 COURSES</span>
+          <span class="meta-sep">/</span>
+          <span>60 FPS</span>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>纯 Canvas + Web Audio 构建，无外部素材依赖。</span>
+      <span class="footer-credit">A FAN-MADE TRIBUTE · 2026</span>
+    </footer>
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
